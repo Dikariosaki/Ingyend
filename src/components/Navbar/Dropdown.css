@@ -1,0 +1,142 @@
+/* Contenedor principal del dropdown */
+.dropdown-container {
+  position: relative;
+}
+
+.submenu-container {
+  position: relative;
+}
+
+/* Botón del dropdown */
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alineación a la izquierda */
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* Etiqueta del dropdown */
+.dropdown-label {
+  margin-right: 0.5rem; /* Espacio entre el texto y la flecha */
+  white-space: nowrap;
+}
+
+/* Icono de flecha */
+.dropdown-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: max-content;
+  z-index: 10;
+}
+
+.submenu {
+  left: calc(100% - 10px); /* Submenús más cerca del menú principal */
+  top: 0;
+  transform: translateX(-10%); /* Ajuste fino */
+}
+
+/* Lista del dropdown */
+.dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* Elementos de la lista */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.submenu-item {
+  position: relative;
+}
+
+/* Enlace del dropdown */
+.dropdown-link {
+  display: block; /* El enlace cubre todo el ancho */
+  width: 100%; /* Hover abarca todo el ancho del contenedor */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  text-decoration: none;
+}
+
+.dropdown-link:hover {
+  background-color: #f3f4f6;
+  color: #1d4ed8; /* Azul oscuro */
+}
+
+/* Botón del dropdown dentro del NavMenu (nivel más alto) */
+.navmenu-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #374151;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navmenu-link:hover {
+  background-color: #f3f4f6;
+  color: #1d4ed8; /* Azul oscuro */
+}
+
+/* Ícono de flecha en el dropdown del NavMenu */
+.navmenu-link .dropdown-icon {
+  margin-left: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Ícono de flecha en los subniveles */
+.submenu-icon {
+  margin-left: 0.5rem; /* Espacio entre el texto y el ícono */
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .dropdown-link {
+    padding: 0.75rem 1rem;
+  }
+}
