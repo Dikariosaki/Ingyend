@@ -45,7 +45,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 relative">
+    <nav className="fixed top-0 left-0 w-full bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 z-50">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between p-4">
         <Logo />
         <NavToggle isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
