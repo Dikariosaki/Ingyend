@@ -1,7 +1,10 @@
 import { Footer } from "flowbite-react";
-import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsFacebook, BsInstagram } from "react-icons/bs";
+import type { FC } from "react";
 
-export function Component() {
+const CustomFooter: FC = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <Footer container>
       <div className="w-full">
@@ -40,7 +43,7 @@ export function Component() {
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <Footer.Copyright href="#" by="Ingyend" year={new Date().getFullYear()} />
+          <Footer.Copyright href="#" by="Ingyend" year={currentYear} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon href="#" icon={BsFacebook} />
             <Footer.Icon href="#" icon={BsInstagram} />
@@ -49,4 +52,6 @@ export function Component() {
       </div>
     </Footer>
   );
-}
+};
+
+export default CustomFooter;

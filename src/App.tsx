@@ -1,20 +1,18 @@
-import { DarkThemeToggle } from "flowbite-react";
-import Navbar from './components/Navbar/Navbar';
-import { Component } from './components/Footer/Footer';
-import CarouselImagesHome  from "./components/Carousel/Carousel";
+// App.tsx
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./AppRoutes";
+import Navbar from "./components/Navbar/Navbar"; // Tu componente de navegación, si lo tienes
 
-
-function App() {
+const App: React.FC = () => {
   return (
-    <div>
-      <Navbar />
-      <main>
-      <CarouselImagesHome />;
-        <h1>Welcome to the App</h1>
-      </main>
-      <Component/>
-    </div>
+    <Router>
+      <header>
+        <Navbar />
+      </header>
+      <AppRoutes />
+    </Router>
   );
-}
+};
 
 export default App;
