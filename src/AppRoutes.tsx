@@ -18,6 +18,11 @@ const RayosX = lazy(() => import("./pages/EnsayosEND/rayosX"));
 const InspeccionPorTorque = lazy(
   () => import("./pages/EnsayosEND/inspeccionPorTorque"),
 );
+const QuintaRueda = lazy(() => import("./pages/otherServices/inspeccionDeComponentes/quintaRueda"));
+const ProximosCursos = lazy(() => import("./pages/otherServices/proximosCursos"));
+const CalificacionSoldadores = lazy(() => import("./pages/otherServices/calificacionSoldadores"));
+const AuditoriasTecnicas = lazy(() => import("./pages/otherServices/auditoriasTecnicas"));
+
 //const AboutPage = lazy(() => import("./pages/AboutPage"));
 //const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
@@ -40,6 +45,12 @@ const AppRoutes: React.FC = () => {
           <Route path="inspeccionPorTorque" element={<InspeccionPorTorque />} />
           {/* Opcional: si se ingresa cualquier subruta de "servicios", mostramos InspeccionVisual */}
           {/*<Route path="*" element={<InspeccionVisual />} />*/}
+        </Route>
+        <Route path="Otros-servicios">
+          <Route path="quintaRueda" element={<QuintaRueda />} />
+          <Route path="Proximos-cursos" element={<ProximosCursos />} />
+          <Route path="Calificacion-Soldadores" element={<CalificacionSoldadores />} />
+          <Route path="Auditorias-Tecnicas" element={<AuditoriasTecnicas />} />
         </Route>
         <Route path="about" element={<HomePage />} />
         {/* Ruta comodín para mostrar HomePage en rutas no definidas */}

@@ -33,13 +33,15 @@ const Navbar: React.FC = () => {
     {
       label: "Otros Servicios",
       subItems: [
-        { label: "Próximos Cursos", href: "#" },
+        { label: "Próximos Cursos", href: "/Otros-servicios/Proximos-cursos" },
         {
           label: "Inspección de Componentes",
-          subItems: [{ label: "Quinta Rueda", href: "#" }],
+          subItems: [
+            { label: "Quinta Rueda", href: "/Otros-servicios/Inspección-de-Componentes/quintaRueda" },
+          ],
         },
-        { label: "Calificacion de soldadores", href: "#" },
-        { label: "AUDITORIAS TÉCNICAS ISO 17020.", href: "#" },
+        { label: "Calificacion de soldadores", href: "/Otros-servicios/Calificacion-Soldadores" },
+        { label: "AUDITORIAS TÉCNICAS ISO 17020.", href: "/Otros-servicios/Auditorias-Tecnicas" },
         { label: "Charlas y cursos", href: "#" },
         { label: "Torque y verificacion de pernos", href: "#" },
         { label: "Diseño y elaboracion de procedimientos END", href: "#" },

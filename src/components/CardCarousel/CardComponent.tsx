@@ -19,32 +19,33 @@ const Card: React.FC<CardProps> = ({
   const hasContent = title || description || buttonText;
 
   return (
-    <div className="max-w-sm overflow-hidden rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+    <div className="max-w-sm h-full overflow-hidden rounded-lg bg-transparent flex flex-col justify-center">
       {imageSrc && (
-        <>
+        <div>
           {link ? (
             <a href={link}>
               <img
-                className={`h-48 w-full object-cover ${
+                className={`w-full object-cover ${
                   hasContent ? "rounded-t-lg" : "rounded-lg"
-                }`}
+                } h-auto max-h-48`}
                 src={imageSrc}
                 alt={title || ""}
               />
             </a>
           ) : (
             <img
-              className={`h-48 w-full object-cover ${
+              className={`w-full object-cover ${
                 hasContent ? "rounded-t-lg" : "rounded-lg"
-              }`}
+              } h-auto max-h-48`}
               src={imageSrc}
               alt={title || ""}
             />
           )}
-        </>
+        </div>
       )}
+      
       {hasContent && (
-        <div className="rounded-b-lg p-5">
+        <div className="rounded-b-lg p-5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow">
           {title && (
             <>
               {link ? (

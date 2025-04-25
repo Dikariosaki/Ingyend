@@ -36,8 +36,7 @@ const particulas = () => {
         titleSize="text-4xl font-bold text-center"
         cards={cardsOneCard}
         description="La norma ANSI/SCTE 149 define el método de prueba para la forma en que los sujetadores soportan el torque. La fuerza torsional de las llaves de torque está comprobada según la norma ANSI B18.6.4. Esta norma fue establecida por la Sociedad Americana de Ingenieros Mecánicos (ASME, por sus siglas en inglés) y luego adoptada directamente por ANSI.
-
-Básicamente, la prueba de torque consiste en el ajuste óptimo según las especificaciones técnicas y del abrochador o perno, donde se aplica como se evidencia a continuación un torqueo hasta lograr él apriete."
+        Básicamente, la prueba de torque consiste en el ajuste óptimo según las especificaciones técnicas y del abrochador o perno, donde se aplica como se evidencia a continuación un torqueo hasta lograr él apriete."
         descriptionSize=" md:text-2xl text-1xl text-black whitespace-normal break-words text-left text-justify"
         mobileStackOrder="carousel-text"
         desktopStackOrder="carousel-text"

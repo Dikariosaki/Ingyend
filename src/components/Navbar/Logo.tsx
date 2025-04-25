@@ -5,7 +5,7 @@ const Logo: React.FC = () => {
     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="/img/home/logo.webp" className="h-20" alt="Flowbite Logo" />
       <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-        Ingyend
+        INGYEND S.A.S
       </span>
     </a>
   );

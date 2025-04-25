@@ -9,6 +9,10 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ cards }) => {
+  if (!cards || cards.length === 0) {
+    return <div className="p-4 text-center">No cards available</div>;
+  }
+
   const [[currentIndex, direction], setIndex] = useState<[number, number]>([
     0, 0,
   ]);
@@ -24,13 +28,30 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
-      opacity: 0,
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 1,
+      position: 'absolute',
+      width: '100%'
     }),
-    center: { x: 0, opacity: 1 },
+    center: { 
+      x: 0, 
+      opacity: 1,
+      position: 'absolute',
+      width: '100%',
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut"
+      }
+    },
     exit: (direction: number) => ({
-      x: direction > 0 ? -100 : 100,
-      opacity: 0,
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 1,
+      position: 'absolute',
+      width: '100%',
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut"
+      }
     }),
   };
 
@@ -44,33 +65,45 @@ const Carousel: React.FC<CarouselProps> = ({ cards }) => {
   }, [currentIndex, cards]);
 
   return (
-    <div className="relative mx-auto w-full max-w-sm overflow-hidden">
-      <AnimatePresence initial={false} custom={direction} mode="wait">
-        <motion.div
-          key={currentIndex}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.5 }}
-        >
-          <Card {...cards[currentIndex]} />
-        </motion.div>
-      </AnimatePresence>
+    <div className="relative mx-auto h-[400px] w-full max-w-sm overflow-hidden rounded-lg">
+      <div className="relative h-full w-full rounded-lg overflow-hidden">
+        <AnimatePresence initial={false} custom={direction} mode="sync">
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={variants as any}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="h-full w-full rounded-lg overflow-hidden"
+          >
+            <Card {...cards[currentIndex]} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-      {/* Botón para ir a la tarjeta anterior */}
+      {/* Botón para ir a la tarjeta anterior - Transparente con sombra */}
       <button
         onClick={prevCard}
-        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-gray-700 bg-transparent p-2 text-white opacity-90 hover:bg-gray-800 hover:opacity-80 dark:bg-gray-800 dark:hover:bg-gray-900 sm:left-0"
+        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-transparent p-2 text-white shadow-lg backdrop-blur-sm focus:outline-none"
+        aria-label="Anterior"
+        style={{ 
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+          backgroundColor: 'rgba(255, 255, 255, 0.2)'
+        }}
       >
         <MdKeyboardArrowLeft size={24} />
       </button>
 
-      {/* Botón para ir a la siguiente tarjeta */}
+      {/* Botón para ir a la siguiente tarjeta - Transparente con sombra */}
       <button
         onClick={nextCard}
-        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-gray-700 bg-transparent p-2 text-white hover:bg-gray-800 hover:opacity-80 dark:bg-gray-800 dark:hover:bg-gray-900 sm:right-0"
+        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-transparent p-2 text-white shadow-lg backdrop-blur-sm focus:outline-none"
+        aria-label="Siguiente"
+        style={{ 
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
+          backgroundColor: 'rgba(255, 255, 255, 0.2)'
+        }}
       >
         <MdKeyboardArrowRight size={24} />
       </button>
